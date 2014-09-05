@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   root :to => 'updates#index'
   resources :user_sessions
   resources :users do 
-  	resources :patients, :only => [:new, :index, :create, :show] do
-  		resources :updates, :only => [:index, :new, :create]
-  	end
+  	resources :patients, :only => [:new, :index, :create, :show] 
+  	resources :updates, :only => [:index, :new, :create]
   end
 
 

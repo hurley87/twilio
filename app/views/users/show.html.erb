@@ -10,6 +10,15 @@
 	<%= patient.phone  %>
 <% end %>
 
+<h1>Create an Update</h1>
+	<%= form_for [@user, @update] do |f|  %>
+
+		<%= f.label :body  %>
+		<%= f.text_field :body %>
+		 <%= collection_select(:update, :patient_id, @user.patients, :id, :name) %>
+		<%= f.submit   %>
+	<% end %>
+
 <h1>Create a new patient</h1>
 <%= form_for [@user, @patient] do |f|  %>
 	<%= f.label :name  %>
@@ -20,6 +29,7 @@
 
 	<%= f.submit  %>
 <% end %>
+
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @patient = @user.patients.build
+    @update = @user.updates.build
   end
 
   # GET /users/new

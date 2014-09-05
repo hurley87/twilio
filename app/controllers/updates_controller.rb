@@ -11,11 +11,11 @@ class UpdatesController < ApplicationController
 
   def create
   	@update = Update.new(update_params)
-
     @update.user = current_user
 
     if @update.save
-      redirect_to updates_url
+      @update.send_text_message(@update.patient, @update)
+      redirect_to current_user
     else
       render :new
     end
