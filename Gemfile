@@ -44,7 +44,7 @@ gem 'delayed_job_active_record'
 # Use Daemons gem for Delayed Job gem
 gem 'daemons'
 
-
+#debugging
 gem 'pry'
 
 # Use ActiveModel has_secure_password

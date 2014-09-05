@@ -16,6 +16,10 @@
 		<%= f.label :body  %>
 		<%= f.text_field :body %>
 		 <%= collection_select(:update, :patient_id, @user.patients, :id, :name) %>
+		 <%= f.label :schedule_time, "Schedule Date" %>:
+      <%= f.date_select :schedule_time %>
+      <%= f.label :schedule_time, "Schedule Time" %>:
+      <%= f.time_select :schedule_time %>
 		<%= f.submit   %>
 	<% end %>
 

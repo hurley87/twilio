@@ -14,7 +14,7 @@ class UpdatesController < ApplicationController
     @update.user = current_user
 
     if @update.save
-      @update.send_text_message(@update.patient, @update)
+      @update.delay(run_at: 5.minutes.from_now).send_text_message(@update.patient, @update)
       redirect_to current_user
     else
       render :new
@@ -24,6 +24,6 @@ class UpdatesController < ApplicationController
   private
 
   def update_params
-    params.require(:update).permit(:body, :user_id, :patient_id)
+    params.require(:update).permit(:body, :user_id, :patient_id, :schedule_time)
   end
 end
