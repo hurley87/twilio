@@ -12,9 +12,8 @@ class UpdatesController < ApplicationController
   def create
   	@update = Update.new(update_params)
     @update.user = current_user
-
     if @update.save
-      @update.delay(run_at: 5.minutes.from_now).send_text_message(@update.patient, @update)
+      @update.delay(run_at: 2.minutes.from_now).send_text_message(@update.patient, @update)
       redirect_to current_user
     else
       render :new
