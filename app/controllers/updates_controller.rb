@@ -6,7 +6,7 @@ class UpdatesController < ApplicationController
   def new
   	@update = Update.new
     @user = current_user
-    @recipients = @user.recipients
+    @recipients = @user.patients
   end
 
   def create
